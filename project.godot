@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="Feelings"
+run/main_scene="res://src/scenes/Wellcome.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalData="*res://src/controllers/GlobalData.gd"
 
 [display]
 

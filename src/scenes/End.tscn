@@ -10,7 +10,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "realese"
-length = 4.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BallonWithLetter:scale")
 tracks/0/interp = 1
@@ -30,7 +30,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 4 ),
+"times": PoolRealArray( 0, 1, 6 ),
 "transitions": PoolRealArray( 1, 1, 38.0546 ),
 "update": 0,
 "values": [ Vector2( 976.425, 766.173 ), Vector2( 976.425, 431.195 ), Vector2( -96.2166, 456.14 ) ]
@@ -54,7 +54,8 @@ anims/realese = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="BallonWithLetter" type="Node2D" parent="."]
-position = Vector2( -96.2166, 456.14 )
+position = Vector2( 976.425, 766.173 )
+scale = Vector2( 2, 2 )
 
 [node name="Ballon" type="Area2D" parent="BallonWithLetter"]
 position = Vector2( -6.79358, -4.07123 )
@@ -91,13 +92,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="BallonWithLetter"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.0117647, 0.0117647, 0.0117647, 0.682353 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,7 +115,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="screen_exited" from="BallonWithLetter/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[node name="EndMenu" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="EndMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="EndMenu"]
+margin_left = 360.0
+margin_top = 282.0
+margin_right = 1551.0
+margin_bottom = 873.0
+mouse_filter = 2
+color = Color( 0.454902, 0.45098, 0.45098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="EndMenu"]
+margin_left = 806.618
+margin_top = 425.677
+margin_right = 1104.62
+margin_bottom = 576.677
+custom_fonts/font = ExtResource( 6 )
+text = "Reiniciar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="EndMenu"]
+margin_left = 808.483
+margin_top = 625.26
+margin_right = 1106.48
+margin_bottom = 776.26
+custom_fonts/font = ExtResource( 6 )
+text = "Sair"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="tree_exited" from="BallonWithLetter" to="." method="_on_BallonWithLetter_tree_exited"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="EndMenu/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="EndMenu/Quit" to="." method="_on_Quit_pressed"]
 
 [editable path="BeachBackground"]

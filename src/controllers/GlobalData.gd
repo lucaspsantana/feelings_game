@@ -1,5 +1,3 @@
 extends Node
 
-
-func _ready():
-	pass
+var path_sprite_letter = ""

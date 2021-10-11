@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/others/BeahcBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/objects/2background.jpg" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/sprites/objects/3background.jpg" type="Texture" id=10]
 [ext_resource path="res://assets/fonts/button-3.tres" type="DynamicFont" id=11]
 [ext_resource path="res://src/scenes/Write.gd" type="Script" id=12]
+[ext_resource path="res://src/actor/Actor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/sprites/objects/sad.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/objects/fear.png" type="Texture" id=15]
 
@@ -127,6 +128,7 @@ margin_left = 580.0
 margin_top = 520.0
 margin_right = 1687.0
 margin_bottom = 922.0
+mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
@@ -165,10 +167,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Label"]
 anchor_right = 0.249
 anchor_bottom = 0.304
-margin_left = 421.363
-margin_top = 7.56366
-margin_right = 537.37
-margin_bottom = 37.5797
+margin_left = 334.487
+margin_top = 5.4447
+margin_right = 450.494
+margin_bottom = 35.4607
 custom_fonts/font = ExtResource( 4 )
 text = "porque"
 __meta__ = {
@@ -216,7 +218,7 @@ layer = -10
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.529412 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,7 +236,6 @@ margin_left = 689.165
 margin_top = 552.618
 margin_right = 804.165
 margin_bottom = 651.618
-mouse_filter = 2
 button_mask = 7
 texture_normal = ExtResource( 9 )
 expand = true
@@ -304,7 +305,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="RealeseButton" type="Button" parent="."]
 margin_left = 974.524
 margin_top = 900.643
 margin_right = 1172.52
@@ -315,6 +316,9 @@ text = "Colocar no Balão"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Actor" parent="." instance=ExtResource( 13 )]
+position = Vector2( 245.795, 620.845 )
 
 [connection signal="pressed" from="GroupButton/Paper1" to="." method="_on_Paper1_pressed"]
 [connection signal="pressed" from="GroupButton/Paper2" to="." method="_on_Paper2_pressed"]
@@ -327,3 +331,4 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/happy" to="." method="_on_happy_pressed"]
 [connection signal="pressed" from="CanvasLayer/panic" to="." method="_on_panic_pressed"]
 [connection signal="pressed" from="CanvasLayer/sad" to="." method="_on_sad_pressed"]
+[connection signal="pressed" from="RealeseButton" to="." method="_on_RealeseButton_pressed"]
